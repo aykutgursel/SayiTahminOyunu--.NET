@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        int[] sayilar = new int[5];
+        Random RSayi = new Random();
+        for (int i = 0; i < 5; i++)
+        {
+            int sayi = RSayi.Next(0, 10);
+            if (Array.IndexOf(sayilar, sayilar[i]) == sayi)
+            {
+                continue;
+            }
+            sayilar[i] = Convert.ToInt32(sayi);       
+        }
+
+        foreach (var item in sayilar)
+        {
+            Response.Write("<br>"+item);
+        }
+
+
+    }
+}
